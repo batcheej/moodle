@@ -1,0 +1,149 @@
+<html lang="en">
+
+
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+<meta http-equiv="pragma" content="no-cache" />
+
+
+
+	<head>
+		<title>Dashboard</title>
+		<meta charset="utf-8" />
+		<meta name="description" content="Experience Dashboard"/>
+		
+		<link rel="stylesheet" type="text/css" media="all" href="dashboard.css" />
+		<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="dataModel.js"></script>
+		<script type="text/javascript" src="dashboard.js"></script>
+		<script type="text/javascript" src="testData.js"></script>
+<script> 
+   function openNewTab(){
+   var win=window.open('dashboard.html', 'mypage1');
+       win.location.reload();
+       win.focus();
+   };
+ </script>
+
+
+		
+		<script>
+		
+	
+		
+		
+			var burstChart;
+			var stackChart;
+			var progressChart;
+			var ds;
+			
+			function myTimeout() {
+				setTimeout(function () {
+					progressChart.draw(progressObject);
+					stackChart.draw(stackObject);
+					//burstChart.draw(burstObject);
+					//burstChart.populateTable(burstObject);
+					
+					progressChart.simulateStep(progressObject);
+					stackChart.simulateStep(stackObject);
+					//burstChart.simulateStep(burstObject);
+					
+					myTimeout();
+				}, 250);
+			}
+			
+			var runningStandalone = false;
+			
+			
+			$( document ).ready(function() {
+			
+			
+			
+				if (runningStandalone) {
+					//alert("running Standalone");
+					var queryDict = {};
+					location.search.substr(1).split("&").forEach(function(item) {queryDict[item.split("=")[0]] = item.split("=")[1]})
+				//	console.debug("q: " + queryDict["user"]);
+					
+					 var s = preprocessDataset(dataSet3);
+					
+					//$("#d").html(s);
+					
+					burstObject = burstObjectOriginal;
+					
+					processContent(queryDict["user"], dataSet3);
+				} else {
+					var url = "/moodle/vendor/rusticisoftware/tincan/sample/index.php";
+				//	console.error("launch URL: " + url);
+
+					$.ajaxSetup( { async : false } );
+					var xhr = $.getJSON(url, function(json){	ds = json;	});
+					ds = xhr.responseText;
+					$.ajaxSetup( { async : true } );
+
+					ds = eval("(" + xhr.responseText + ")");
+
+					var userName = ds.mailto;
+
+					ds = ds.element;
+
+					var s = preprocessDataset(ds);
+					
+					burstObject = burstObjectOriginal;
+					
+					processContent(userName, ds);
+				}
+			
+			
+			
+			
+				burstChart = new BurstChart("#burstDiv", "#burstCanvas");
+				burstChart.draw(burstObjectOriginal);
+				burstChart.populateTable(burstObjectOriginal);
+
+				stackChart = new StackChart("#stackDiv", "#stackCanvas");
+				stackChart.draw(stackObject);
+				
+				progressChart = new ProgressChart("#progressDiv", "#progressCanvas");
+				progressChart.draw(progressObject);
+				
+				
+				
+			//	myTimeout();
+
+			});
+		</script>
+		
+		
+		
+	</head>
+	<body>
+		<div id = "d" class="containerDiv">
+			<div id="headerDiv" class="headerDiv">Training Dashboard</div>
+			<div class="contentDiv">
+				<div class="lhsDiv">
+					<div id="progressDiv" class="progressDiv">
+						<canvas id="progressCanvas" class="progressCanvas"> </canvas>
+					</div>
+					<div id="stackDiv" class="stackDiv">
+						<canvas id="stackCanvas" class="stackCanvas"> </canvas>
+					</div>
+				</div>
+				<div class="rhsDiv">
+					<div id="burstDiv" class="burstDiv">
+						<canvas id="burstCanvas" class="burstCanvas"> </canvas>
+					</div>
+					<div id="tableDiv" class="tableDiv">
+						<table id="gameTable" class="gameTable">
+							<tr class="headerTr"><td class="gameTd">Game</td><td class="statusTd">Completion/<br>Status</td><td class="scoreTd">My<br>Score</td></tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+<footer><br><center>
+<INPUT Type="Button" class="Button" style="font-size : 25px; height:50px; width:380px; color:White; background:Black; font-family: Verdana; font-weight: bold;"   VALUE="Click to Return to Moodle" onClick="history.go(-1);return true;"><br><br>Dashboard Version 1.0</center></footer>
+</html>

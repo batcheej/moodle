@@ -1,0 +1,137 @@
+
+div {		margin:0px; 	padding:0px; 	border:0px; }
+body { background-color: gray; color: black; }
+div.lhsDiv { 
+	width:900px;  
+	height:850px; 
+	background-color: black; 
+	display:inline; 
+	float:left; 
+	border-right: 5px solid white;
+	margin:0px; 
+	padding:0px; 	
+}
+div.rhsDiv {  	
+	width:645px;  
+	height:850px; 
+	background-color: black; 
+	display:inline; 
+	float:right; 
+	margin:0px; 
+	padding:0px; 	
+	
+}
+div.contentDiv {  width:1550px;  height:855px;  background-color: gray; margin:0px; }
+
+div.containerDiv {
+	width:1550px;  
+	height:975px;  
+	background-color: orange; 
+	margin-left: auto;
+    margin-right: auto;
+	margin-top:0px; 
+	margin-bottom:0px; 
+	padding:0px; 
+	border:0px; 
+
+ }
+div.headerDiv {
+	width:1550px;  
+	height:120px;  
+    font-size: 75px;
+    font-weight: bold;
+    font-family: Verdana;
+    //position: absolute;
+    //left: 0px;
+    //top: 0px;
+	margin:0px; 
+	padding:0px; 	
+	
+	text-align: center;
+	vertical-align: middle;
+	line-height: 100px;  
+	background-color: black; 
+    color: white;
+	border-bottom: 5px solid white;
+}
+
+
+
+div.burstDiv { 
+	width:500px;  
+	height:400px;  
+	margin:0px; 
+	padding:0px; 
+	background-color: white; 
+    //position: absolute;
+    //left: 905px;
+    //top: 125px;
+	margin-top:5px; 
+}
+canvas.burstCanvas { width:500px;  height:400px;  margin:0px; padding:0px; border:0px; background-color: green; }
+
+
+div.stackDiv { 
+	width:905px;  
+	height:900px;  
+	margin:0px; 
+	padding:0px; 
+	border:0px; 
+	background-color: white; 
+    //position: absolute;
+    //left: 0px;
+    //top: 310px;
+}
+canvas.stackCanvas { width:800px;  height:800px;  margin:0px; padding:0px; border:0px; background-color: green; }
+
+div.tableDiv { 
+	margin:0px; 
+	padding:0px; 
+	border:0px; 
+	    font-size: 32px;
+    font-family: Verdana;
+	font-weight: bold;
+	background-color: black;
+
+}
+table.gameTable { border: 2px solid black;  margin: 0px; padding: 0px; cellspacing: 0px; border-spacing: 0; border-collapse: collapse; background-color: black; }
+table.gameTable td { text-align:center; border: 2px solid white; font-weight: bold; }
+td.gameTd { width: 400px;}
+td.statusTd {  width: 325px; text-align:center; }
+td.scoreTd {  width: 125px; text-align:center; }
+tr.headerTr {    height: 50px; font-size: 16px;    font-weight: bold;  color: white;    font-family: Verdana; background-color: #193441;}
+tr.row1Tr {  margin:0px; height: 38px; background-color: #808040;  }
+tr.row2Tr {  padding:0px; height: 38px; background-color: #6EC1A7;  }
+tr.row3Tr {  height: 38px; background-color: #ECEADD;  color:black;}
+tr.row4Tr {  height: 38px; background-color: #EC474B;  }
+tr.row5Tr {  height: 38px; background-color: #3E576D;  }
+tr.row6Tr {  height: 38px; background-color: #757573;  }
+tr.row7Tr {  height: 38px; background-color: #ECEADD;  }
+
+div.progressDiv { 
+	width:905px;  
+	height:175px;  
+	margin:0px; 
+	padding:0px; 
+	border-top: 0px solid white;
+	//background-color: white; 
+    //position: absolute;
+    //left: 0px;
+    //top: 125px;
+	margin-left: 0px;
+    margin-right: 5px;
+	margin-top:0px; 
+	margin-bottom:5px; 
+
+}
+canvas.progressCanvas { width:900px;  height:200px;  margin:0px; padding:0px; border:0px; background-color: green; }
+
+input.Button {
+-moz-box-shadow: 0px 0px 20px Green;
+-webkit-box-shadow: 0px 0px 20px Green;
+box-shadow: 0px 0px 20px Green;
+}
+
+br {
+    line-height: 5px;
+ }
